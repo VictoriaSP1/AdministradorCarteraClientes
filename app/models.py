@@ -23,8 +23,12 @@ class Agente (models.Model):
     Email = models.CharField(max_length=50)
     Password = models.CharField(max_length=50)
 
+class Poliza_Asegurado:
+    Id_Asegurado = models.ForeignKey(Asegurado, on_delete=models.CASCADE)
+    
 class Asegurado (models.Model):
     Nombre_Asegurado = models.CharField(max_length=200)
+    Edad = models.IntegerField()
     
 class Tipo_Poliza (models.Model):
     Tipo_Poliza = models.CharField(max_length=200)
