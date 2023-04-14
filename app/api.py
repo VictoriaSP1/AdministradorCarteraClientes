@@ -5,5 +5,5 @@ from .serializers import AgenteSerializer
 class AgenteViewSet(viewsets.ModelViewSet):
     queryset = Agente.objects.all()
     permission_classes = [permissions.AllowAny]
-    serializer_class = AppSerializer
+    serializer_class = AgenteSerializer
 

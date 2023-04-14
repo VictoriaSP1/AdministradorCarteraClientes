@@ -1,6 +1,11 @@
-from django.urls import path
-from . import views
+#from django.urls import path
+#from . import views
+from rest_framework import routers
+from .api import AgenteViewSet
 
-urlpatterns = [
-    path('', views.index, name="index"),
-]
+router = routers.DefaultRouter()
+
+router.register('api/Agente', AgenteViewSet, 'app')
+
+urlpatterns = router.urls
+
