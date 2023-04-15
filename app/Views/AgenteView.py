@@ -1,6 +1,6 @@
 from django.http import HttpResponse, JsonResponse
 from django.utils.decorators import method_decorator
-from .models import Agente, Asegurado, Cliente, Poliza, Estado_Poliza, Tipo_Poliza
+from models import Agente
 from django.views import View
 from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render, redirect, get_object_or_404
