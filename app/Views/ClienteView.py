@@ -16,7 +16,8 @@ class ClienteView(View):
     def get(self, request):
         Clientes = list(Cliente.objects.values())
         if (len(Clientes)>0):
-            datos = {'message':"Success", 'Clientes': Clientes}
+            datos = {
+                'message':"Success", 'Clientes': Clientes}
         else:
             datos = {'message': "Clientes no encontrados"}
         return JsonResponse(datos)

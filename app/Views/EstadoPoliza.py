@@ -29,7 +29,7 @@ class Estado_PolizaView(View):
         datos = {'message': "Success"}
         return JsonResponse(datos)
     
-    def put (self, request, id):
+    def PUT (self, request, id):
         RequestBody = json.loads(request.body)
         Estado_Polizas = list(Estado_Poliza.objects.filter(id=id).values())
         if len(Estado_Polizas) > 0:
