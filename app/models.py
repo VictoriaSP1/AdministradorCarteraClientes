@@ -1,10 +1,14 @@
 from django.db import models
-from rest_framework import serializers
+
 
 class Agente (models.Model):
     Nombre_Agente = models.CharField(max_length=200)
     Email = models.CharField(max_length=50)
     Password = models.CharField(max_length=50)
+    
+    def __str__(self):
+        return f"{self.Nombre_Agente}"
+    
     
 
 class Cliente (models.Model):
@@ -14,20 +18,28 @@ class Cliente (models.Model):
     Id_Agente = models.ForeignKey(Agente, on_delete=models.CASCADE)
     
     def __str__(self):
-        return f"{self.Id_Agente.Nombre_Agente}"
+        return f"{self.Nombre_Cliente} {self.Id_Agente.Nombre_Agente}"
     
 
 class Asegurado (models.Model):
     Nombre_Asegurado = models.CharField(max_length=200)
     Edad = models.IntegerField()
+    
+    def __str__(self):
+        return f"{self.Nombre_Asegurado}"
+            
 
 
 class Tipo_Poliza (models.Model):
     Tipo_Poliza = models.CharField(max_length=200)
+    def __str__(self):
+        return f"{self.Tipo_Poliza}"
 
 
 class Estado_Poliza (models.Model):
     Estado_Poliza = models.CharField(max_length=50)
+    def __str__(self):
+        return f"{self.Estado_Poliza}"
 
 
 class Poliza_Asegurado (models.Model):
@@ -55,5 +67,7 @@ class Poliza (models.Model):
             self.Tipo_Poliza.Tipo_Poliza,
             self.Estado_Poliza.Estado_Poliza
             )
+        
+
 
 

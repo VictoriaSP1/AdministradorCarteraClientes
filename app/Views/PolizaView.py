@@ -27,11 +27,11 @@ class PolizaView(View):
             Num_Poliza = RequestBody['Num_Poliza'],
             FechaInicio = RequestBody['FechaInicio'],
             FechaVigencia = RequestBody['FechaVigencia'],
-            Id_Cliente = RequestBody['Id_Cliente']
-            Id_Asegurado = RequestBody['Id_Asegurado']
-            Aseguradora = RequestBody['Aseguradora']
-            Tipo_Poliza = RequestBody['Tipo_Poliza']
-            Precio = RequestBody['Precio']
+            Id_Cliente = RequestBody['Id_Cliente'],
+            Id_Asegurado = RequestBody['Id_Asegurado'],
+            Aseguradora = RequestBody['Aseguradora'],
+            Tipo_Poliza = RequestBody['Tipo_Poliza'],
+            Precio = RequestBody['Precio'],
             Estado_Poliza = RequestBody['Estado_Poliza']
             )
         datos = {'message': "Success"}
