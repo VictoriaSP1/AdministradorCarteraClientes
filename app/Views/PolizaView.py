@@ -28,12 +28,12 @@ class PolizaView(View):
             FechaVigencia = RequestBody['FechaVigencia'],
             Id_Cliente = RequestBody['Id_Cliente'],
             Id_Asegurado = RequestBody['Id_Asegurado'],
-            Aseguradora = RequestBody['Aseguradora'],
-            Tipo_Poliza = RequestBody['Tipo_Poliza'],
+            Id_Aseguradora = RequestBody['Id_Aseguradora'],
+            Id_Tipo_Poliza = RequestBody['Id_Tipo_Poliza'],
             Precio = RequestBody['Precio'],
-            Estado_Poliza = RequestBody['Estado_Poliza']
+            Id_Estado_Poliza = RequestBody['Id_Estado_Poliza']
             )
-        datos = {'message': "Success"}
+        datos = {'message': "Se ha creado una poliza"}
         return JsonResponse(datos)
     
     def put (self, request, id):
@@ -46,14 +46,14 @@ class PolizaView(View):
             Polizas.FechaVigencia = RequestBody['FechaVigencia']
             Polizas.Id_Cliente = RequestBody['Id_Cliente']
             Polizas.Id_Asegurado = RequestBody['Id_Asegurado']
-            Polizas.Aseguradora = RequestBody['Aseguradora']
-            Polizas.Tipo_Poliza = RequestBody['Tipo_Poliza']
+            Polizas.Id_Aseguradora = RequestBody['Id_Aseguradora']
+            Polizas.Id_Tipo_Poliza = RequestBody['Id_Tipo_Poliza']
             Polizas.Precio = RequestBody['Precio']
-            Polizas.Estado_Poliza = RequestBody['Estado_Poliza']
+            Polizas.Id_Estado_Poliza = RequestBody['Id_Estado_Poliza']
             Polizas.save()
             datos = {'message': "Success"}
         else:
-            datos = {'message': "Poliza no encontrado"}
+            datos = {'message': "Poliza no encontrada"}
         return JsonResponse(datos)
     
     def delete (self, id):
@@ -62,6 +62,6 @@ class PolizaView(View):
             Poliza.objects.filter(id=id).delete()
             datos = {'message': "Success"}
         else:
-            datos = {'message': "Poliza no encontrado"}
+            datos = {'message': "Poliza no encontrada"}
         return JsonResponse(datos)
     

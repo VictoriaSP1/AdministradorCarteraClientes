@@ -8,8 +8,7 @@ class Agente (models.Model):
     
     def __str__(self):
         return f"{self.Nombre_Agente}"
-    
-    
+
 
 class Cliente (models.Model):
     Nombre_Cliente = models.CharField(max_length=200)
@@ -27,7 +26,6 @@ class Asegurado (models.Model):
     
     def __str__(self):
         return f"{self.Nombre_Asegurado}"
-            
 
 
 class Tipo_Poliza (models.Model):
@@ -42,30 +40,30 @@ class Estado_Poliza (models.Model):
         return f"{self.Estado_Poliza}"
 
 
-class Poliza_Asegurado (models.Model):
-    Id_Asegurado = models.ForeignKey(Asegurado, on_delete=models.CASCADE)
-    
+class Aseguradora (models.Model):
+    Aseguradora = models.CharField(max_length=100)
     def __str__(self):
-        return f"{self.Id_Asegurado.Nombre_Asegurado}"
-    
+        return f"{self.Aseguradora}"
+
 
 class Poliza (models.Model):
     Num_Poliza = models.IntegerField()
     Fecha_Inicio = models.DateField()
     Fecha_Vigencia = models.DateField()
     Id_Cliente = models.ForeignKey (Cliente, on_delete=models.CASCADE)
-    Id_Asegurado = models.ForeignKey(Poliza_Asegurado, on_delete=models.CASCADE)
-    Aseguradora = models.CharField(max_length=200)
-    Tipo_Poliza = models.ForeignKey(Tipo_Poliza, on_delete=models.CASCADE)
+    Id_Asegurado = models.ForeignKey(Asegurado, on_delete=models.CASCADE)
+    Id_Aseguradora = models.ForeignKey(Aseguradora, on_delete=models.CASCADE)
+    Id_Tipo_Poliza = models.ForeignKey(Tipo_Poliza, on_delete=models.CASCADE)
     Precio = models.FloatField()
-    Estado_Poliza = models.ForeignKey(Estado_Poliza, on_delete=models.CASCADE)
+    Id_Estado_Poliza = models.ForeignKey(Estado_Poliza, on_delete=models.CASCADE)
     
     def __str__(self):
         return '%d: %s' % (
             self.Id_Cliente.Nombre_Cliente, 
             self.Id_Asegurado.Id_Asegurado.Nombre_Asegurado,
-            self.Tipo_Poliza.Tipo_Poliza,
-            self.Estado_Poliza.Estado_Poliza
+            self.Id_Aseguradora,
+            self.Id_Tipo_Poliza.Tipo_Poliza,
+            self.Id_Estado_Poliza.Estado_Poliza
             )
         
 

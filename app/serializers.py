@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Agente, Asegurado, Cliente, Poliza, Estado_Poliza, Tipo_Poliza
+from .models import Agente, Asegurado, Cliente, Poliza, Estado_Poliza, Tipo_Poliza, Aseguradora
 
 class AgenteSerializer(serializers.ModelSerializer):
     class Meta: 
@@ -9,6 +9,11 @@ class AgenteSerializer(serializers.ModelSerializer):
 class AseguradoSerializer(serializers.ModelSerializer):
     class Meta: 
         model = Asegurado
+        fields = '__all__'
+
+class AseguradoraSerializer(serializers.ModelSerializer):
+    class Meta: 
+        model = Aseguradora
         fields = '__all__'
         
 class ClienteSerializer(serializers.ModelSerializer):
