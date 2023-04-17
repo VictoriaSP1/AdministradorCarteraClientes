@@ -4,6 +4,7 @@ from models import Agente
 from django.views import View
 from django.views.decorators.csrf import csrf_exempt
 import json
+from rest_framework import status
 
 
 class AgenteView(View):
@@ -17,7 +18,7 @@ class AgenteView(View):
         Agentes = list(Agente.objects.values())
         
         if (len(Agentes)>0):
-            datos = {'message':"Success", 'Agentes': Agentes}
+            datos = {'message':"Usuario encontrado. ¡Login Exitoso!", 'Agentes': Agentes, 'status': status.HTTP_200_OK}
         else:
             datos = {'message': "Agentes no encontrados"}
         
@@ -33,7 +34,7 @@ class AgenteView(View):
             Password = RequestBody['Password']
             )
 
-        datos = {'message': "Success"}
+        datos = {'message': "Success", 'status': status.HTTP_201_CREATED}
         
         return JsonResponse(datos)
     
@@ -48,7 +49,7 @@ class AgenteView(View):
             Agentes.Email = RequestBody['Email']
             Agentes.Password = RequestBody['Password']
             Agentes.save()
-            datos = {'message': "Usuario encontrado. ¡Login Exitoso!"}
+            datos = {'message': "Sucess"}
         else:
             datos = {'message': "Agente no encontrado"}
         

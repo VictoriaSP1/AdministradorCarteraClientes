@@ -3,7 +3,7 @@ from django.db import models
 
 class Agente (models.Model):
     Nombre_Agente = models.CharField(max_length=200)
-    Email = models.CharField(max_length=50)
+    Email = models.EmailField()
     Password = models.CharField(max_length=50)
     
     def __str__(self):
@@ -14,7 +14,7 @@ class Agente (models.Model):
 class Cliente (models.Model):
     Nombre_Cliente = models.CharField(max_length=200)
     Telefono = models.CharField(max_length=10)
-    Email = models.CharField(max_length=50)
+    Email = models.EmailField()
     Id_Agente = models.ForeignKey(Agente, on_delete=models.CASCADE)
     
     def __str__(self):
