@@ -3,7 +3,6 @@ from django.utils.decorators import method_decorator
 from models import Poliza
 from django.views import View
 from django.views.decorators.csrf import csrf_exempt
-from django.shortcuts import render, redirect, get_object_or_404
 import json
 
 
