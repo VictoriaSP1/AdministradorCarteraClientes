@@ -13,14 +13,29 @@ class AgenteView(View):
     def dispatch(self, request, *args, **kwargs):
         return super().dispatch(request, *args, **kwargs)
     
-    def get(self, request):
+    def get(self, request,Password = ''):
         
-        Agentes = list(Agente.objects.values())
+        if (Password !=''):
+            
+            Agentes = list(Agente.objects.filter(
+                Password=Password
+                ).values())
+            
+            if len(Agentes) > 0:
+                #Agentes = Agentes[0]
+                datos = {'message': "Agente encontrado. \n¡Inicio de sesión exitoso!", 'Agente': Agentes}
+            else:
+                datos = {'message': "Agente no encontrado, no fue posible iniciar sesión"}
+            return JsonResponse(datos)
         
-        if (len(Agentes)>0):
-            datos = {'message':"Usuario encontrado. ¡Login Exitoso!", 'Agentes': Agentes, 'status': status.HTTP_200_OK}
-        else:
-            datos = {'message': "Agentes no encontrados"}
+        else: 
+            
+            Agentes = list(Agente.objects.values())
+            
+            if (len(Agentes)>0):
+                datos = {'message':"Usuario encontrado. ¡Login Exitoso!", 'Agentes': Agentes, 'status': status.HTTP_200_OK}
+            else:
+                datos = {'message': "Agentes no encontrados"}
         
         return JsonResponse(datos)
     

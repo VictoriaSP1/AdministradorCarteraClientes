@@ -7,6 +7,7 @@ from .api import AgenteViewSet, AseguradoViewSet, ClienteViewSet, PolizaViewSet,
 router = routers.SimpleRouter()
 
 router.register(r'api/agente', AgenteViewSet, 'app')
+router.register(r'api/agente/<char:Password>', AgenteViewSet, 'app')
 router.register(r'api/cliente', ClienteViewSet, 'app')
 router.register(r'api/asegurado', AseguradoViewSet, 'app')
 router.register(r'api/aseguradora', AseguradoraViewSet, 'app')
