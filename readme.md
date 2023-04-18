@@ -8,7 +8,7 @@ El administrador de cartera de clientes es una api que permite a los agentes de 
 
 El modelo relacional utilizado para la creación de los módelos, se puede ver en la imagen: 
 
-![Modelo relacional de la Base de Datos](https://github.com/VictoriaSP1/AdministradorCarteraClientes/tree/master/assets/ModeloRelacional.png)
+![Modelo relacional de la Base de Datos](./assets/ModeloRelacional.png)
 
 ## Instalación
 
@@ -44,7 +44,7 @@ Para poder utilizar la api, se necesita iniciar el servidor con:
 
 Al inicializar el servidor, aparecerá una ruta similar a: 
 
-![Imagen de la ruta inicial](https://github.com/VictoriaSP1/AdministradorCarteraClientes/tree/master/assets/Inicial.png)
+![Imagen de la ruta inicial](./assets/Inicial.png)
 
 En donde se debe agregar alguna de las siguientes rutas: 
 
@@ -82,7 +82,7 @@ api/poliza/
 
 Y se rellenan los datos como se ve en la imagen: 
 
-![Imagen de una Poliza rellenada](https://github.com/VictoriaSP1/AdministradorCarteraClientes/tree/master/assets/Poliza.png)
+![Imagen de una Poliza llena](./assets/Poliza.png)
 
 **Nota:** En caso de no encontrar datos para seleccionar en los apartados, se requiere escribir los datos de nuevo en la BD.
 
@@ -187,4 +187,4 @@ Para acceder a la documentación con Swagger se debe acceder a la ruta:
 
 En la imagen se muestra como debe verse: 
 
-![Documentación con Swagger](https://github.com/VictoriaSP1/AdministradorCarteraClientes/tree/master/assets/Documentacion.png)
+![Documentación con Swagger](./assets/Documentacion.png)
